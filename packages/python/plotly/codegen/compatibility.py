@@ -129,7 +129,6 @@ def build_deprecation_message(class_name, base_type, new):
     """
     replacements = []
     for repl in new:
-
         if repl == "etc.":
             replacements.append(repl)
         else:

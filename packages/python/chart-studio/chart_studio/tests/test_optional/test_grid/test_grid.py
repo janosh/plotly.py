@@ -16,7 +16,6 @@ import pandas as pd
 
 
 class TestDataframeToGrid(TestCase):
-
     # Test duplicate columns
     def test_duplicate_columns(self):
         df = pd.DataFrame([[1, "a"], [2, "b"]], columns=["col_1", "col_1"])

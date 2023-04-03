@@ -67,7 +67,6 @@ class TestPlot(PlotlyTestCase):
         self.assertRaises(PlotlyEmptyDataError, py.plot, [], filename="plot_invalid")
 
     def test_plot_sharing_invalid_argument(self):
-
         # Raise an error if sharing argument is incorrect
         # correct arguments {'public, 'private', 'secret'}
 
@@ -77,7 +76,6 @@ class TestPlot(PlotlyTestCase):
             py.plot(self.simple_figure, **kwargs)
 
     def test_plot_world_readable_sharing_conflict_1(self):
-
         # Raise an error if world_readable=False but sharing='public'
 
         kwargs = {
@@ -92,7 +90,6 @@ class TestPlot(PlotlyTestCase):
             py.plot(self.simple_figure, **kwargs)
 
     def test_plot_world_readable_sharing_conflict_2(self):
-
         # Raise an error if world_readable=True but sharing='secret'
 
         kwargs = {
@@ -107,7 +104,6 @@ class TestPlot(PlotlyTestCase):
             py.plot(self.simple_figure, **kwargs)
 
     def test_plot_option_logic_only_world_readable_given(self):
-
         # If sharing is not given and world_readable=False,
         # sharing should be set to private
 
@@ -130,7 +126,6 @@ class TestPlot(PlotlyTestCase):
         self.assertEqual(plot_option_logic, expected_plot_option_logic)
 
     def test_plot_option_logic_only_sharing_given(self):
-
         # If world_readable is not given and sharing ='private',
         # world_readable should be set to False
 
@@ -153,7 +148,6 @@ class TestPlot(PlotlyTestCase):
         self.assertEqual(plot_option_logic, expected_plot_option_logic)
 
     def test_plot_url_given_sharing_key(self):
-
         # Give share_key is requested, the retun url should contain
         # the share_key
 
@@ -172,7 +166,6 @@ class TestPlot(PlotlyTestCase):
         self.assertTrue("share_key=" in plot_url)
 
     def test_plot_url_response_given_sharing_key(self):
-
         # Given share_key is requested, get request of the url should
         # be 200
 
@@ -192,7 +185,6 @@ class TestPlot(PlotlyTestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_private_plot_response_with_and_without_share_key(self):
-
         # The json file of the private plot should be 404 and once
         # share_key is added it should be 200
 

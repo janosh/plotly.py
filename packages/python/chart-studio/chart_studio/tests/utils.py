@@ -6,7 +6,6 @@ from plotly.files import ensure_writable_plotly_dir
 
 
 class PlotlyTestCase(TestCase):
-
     # parent test case to assist with clean up of local credentials/config
 
     def __init__(self, *args, **kwargs):

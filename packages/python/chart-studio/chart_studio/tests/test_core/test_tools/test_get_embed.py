@@ -21,7 +21,6 @@ def test_get_invalid_embed():
 
 class TestGetEmbed(TestCase):
     def test_get_embed_url_with_share_key(self):
-
         # Check the embed url for url with share_key included
 
         get_embed_return = tls.get_embed(

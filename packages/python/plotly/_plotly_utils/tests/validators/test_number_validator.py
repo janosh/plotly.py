@@ -5,6 +5,7 @@ from _plotly_utils.basevalidators import NumberValidator
 import numpy as np
 import pandas as pd
 
+
 # Fixtures
 # --------
 @pytest.fixture

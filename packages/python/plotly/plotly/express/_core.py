@@ -321,7 +321,6 @@ def make_trace_kwargs(args, trace_spec, trace_data, mapping_labels, sizeref):
                     and args["y"]
                     and len(trace_data[[args["x"], args["y"]]].dropna()) > 1
                 ):
-
                     # sorting is bad but trace_specs with "trendline" have no other attrs
                     sorted_trace_data = trace_data.sort_values(by=args["x"])
                     y = sorted_trace_data[args["y"]].values
@@ -562,7 +561,6 @@ def set_cartesian_axis_opts(args, axis, letter, orders):
 
 
 def configure_cartesian_marginal_axes(args, fig, orders):
-
     if "histogram" in [args["marginal_x"], args["marginal_y"]]:
         fig.layout["barmode"] = "overlay"
 

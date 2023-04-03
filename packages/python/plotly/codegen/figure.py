@@ -192,7 +192,6 @@ class {fig_classname}({base_classname}):\n"""
 
     # ### add_trace methods for each trace type ###
     for trace_node in trace_nodes:
-
         include_secondary_y = bool(
             [d for d in trace_node.child_datatypes if d.name_property == "yaxis"]
         )
@@ -766,7 +765,6 @@ def write_figure_classes(
     ]
 
     for base_package, base_classname, fig_classname in base_figures:
-
         # ### Build figure source code string ###
         figure_source = build_figure_py(
             trace_node,

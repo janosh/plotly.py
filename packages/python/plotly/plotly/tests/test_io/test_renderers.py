@@ -126,6 +126,7 @@ def test_plotly_mimetype_renderer_show(fig1, renderer):
 # ------------
 # See plotly/tests/test_orca/test_image_renderers.py
 
+
 # HTML
 # ----
 def assert_full_html(html):

@@ -63,6 +63,7 @@ if "--skip-npm" in sys.argv or os.environ.get("SKIP_NPM") is not None:
 else:
     skip_npm = False
 
+
 # Load plotly.js version from js/package.json
 def plotly_js_version():
     path = os.path.join(
@@ -283,7 +284,6 @@ def request_json(url):
 
 
 def get_latest_publish_build_info(repo, branch):
-
     url = (
         r"https://circleci.com/api/v1.1/project/github/"
         r"{repo}/tree/{branch}?limit=100&filter=completed"

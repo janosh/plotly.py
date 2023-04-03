@@ -26,9 +26,7 @@ class TestBatchUpdateMessage(TestCase):
         self.figure._send_update_msg = MagicMock()
 
     def test_batch_update(self):
-
         with self.figure.batch_update():
-
             # Assign trace property
             self.figure.data[0].marker.color = "yellow"
             self.figure.data[1].marker.opacity = 0.9

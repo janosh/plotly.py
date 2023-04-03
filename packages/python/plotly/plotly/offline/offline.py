@@ -108,7 +108,6 @@ def _build_mathjax_script(url):
 
 
 def _get_jconfig(config=None):
-
     configkeys = (
         "staticPlot",
         "plotlyServerURL",

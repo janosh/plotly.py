@@ -43,7 +43,6 @@ class TestFigureProperties(TestCase):
         self.assertEqual(set(self.figure), {"data", "layout", "frames"})
 
     def test_attr_item(self):
-
         # test that equal objects can be retrieved using attr or item
         # syntax
         self.assertEqual(self.figure.data, self.figure["data"])
@@ -51,7 +50,6 @@ class TestFigureProperties(TestCase):
         self.assertEqual(self.figure.frames, self.figure["frames"])
 
     def test_property_assignment_tuple(self):
-
         # Empty
         self.assertIs(self.figure[()], self.figure)
 

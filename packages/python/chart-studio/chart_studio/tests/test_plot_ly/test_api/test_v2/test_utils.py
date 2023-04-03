@@ -55,7 +55,6 @@ class ValidateResponseTest(PlotlyApiTestCase):
             self.assertRaises(PlotlyRequestError, utils.validate_response, response)
 
     def test_validate_no_content(self):
-
         # We shouldn't flake if the response has no content.
 
         response = self.get_response(content=b"", status_code=400)
@@ -192,7 +191,6 @@ class RequestTest(PlotlyApiTestCase):
         self.url = "https://foo.bar.does.not.exist.anywhere"
 
     def test_request_with_params(self):
-
         # urlencode transforms `True` --> `'True'`, which isn't super helpful,
         # Our backend accepts the JS `true`, so we want `True` --> `'true'`.
 
@@ -206,7 +204,6 @@ class RequestTest(PlotlyApiTestCase):
         self.assertEqual(kwargs["params"], expected_params)
 
     def test_request_with_non_native_objects(self):
-
         # We always send along json, but it may contain non-native objects like
         # a pandas array or a Column reference. Make sure that's handled in one
         # central place.
@@ -225,7 +222,6 @@ class RequestTest(PlotlyApiTestCase):
         self.assertNotIn("json", kwargs)
 
     def test_request_with_ConnectionError(self):
-
         # requests can flake out and not return a response object, we want to
         # make sure we remain consistent with our errors.
 
@@ -233,7 +229,6 @@ class RequestTest(PlotlyApiTestCase):
         self.assertRaises(PlotlyRequestError, utils.request, self.method, self.url)
 
     def test_request_validate_response(self):
-
         # Finally, we check details elsewhere, but make sure we do validate.
 
         utils.request(self.method, self.url)

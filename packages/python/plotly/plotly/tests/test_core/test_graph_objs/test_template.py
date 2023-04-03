@@ -10,7 +10,6 @@ from plotly.tests.utils import TestCaseNoTemplate
 
 
 class TemplateTest(TestCase):
-
     # Fixtures
     # --------
     def setUp(self):
@@ -406,7 +405,6 @@ class TestToTemplated(TestCaseNoTemplate):
 
 class TestMergeTemplates(TestCase):
     def setUp(self):
-
         self.template1 = go.layout.Template(
             layout={"font": {"size": 20, "family": "Rockwell"}},
             data={

@@ -124,7 +124,6 @@ def write_init_py(pkg_root, path_parts, rel_modules=(), rel_classes=(), init_ext
 
 
 def format_description(desc):
-
     # Remove surrounding *s from numbers
     desc = re.sub("(^|[\s(,.:])\*([\d.]+)\*([\s),.:]|$)", r"\1\2\3", desc)
 
@@ -821,7 +820,6 @@ class PlotlyNode:
                     "template",
                     "data",
                 ):
-
                     nodes.append(ElementDefaultsNode(n, self.plotly_schema))
             elif n.is_compound and n.plotly_name == "title":
                 nodes.append(n)
@@ -832,7 +830,6 @@ class PlotlyNode:
                     p for p in deprecated_data if p.startswith("title") and p != "title"
                 ]
                 for prop_name in deprecated_title_prop_names:
-
                     mapped_prop_name = prop_name.replace("title", "")
 
                     mapped_prop_node = [

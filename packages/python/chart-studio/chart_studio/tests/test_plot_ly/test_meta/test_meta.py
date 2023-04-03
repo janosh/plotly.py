@@ -19,7 +19,6 @@ from chart_studio.tests.utils import PlotlyTestCase
 
 
 class MetaTest(PlotlyTestCase):
-
     _grid = grid = Grid([Column([1, 2, 3, 4], "first column")])
     _meta = {"settings": {"scope1": {"model": "Unicorn Finder", "voltage": 4}}}
 

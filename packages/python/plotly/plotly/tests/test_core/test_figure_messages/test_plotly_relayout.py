@@ -42,7 +42,6 @@ class TestRelayoutMessage(TestCase):
         )
 
     def test_property_assignment_nested_array(self):
-
         # Initialize images
         self.figure.layout.updatemenus = [
             {},
@@ -131,7 +130,6 @@ class TestRelayoutMessage(TestCase):
         )
 
     def test_plotly_relayout_nested_array(self):
-
         # Initialize images
         self.figure.layout.updatemenus = [
             {},

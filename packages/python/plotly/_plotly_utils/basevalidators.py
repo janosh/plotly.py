@@ -392,7 +392,6 @@ class DataArrayValidator(BaseValidator):
         )
 
     def validate_coerce(self, v):
-
         if v is None:
             # Pass None through
             pass
@@ -512,7 +511,6 @@ class EnumeratedValidator(BaseValidator):
         return v
 
     def description(self):
-
         # Separate regular values from regular expressions
         enum_vals = []
         enum_regexs = []
@@ -1039,7 +1037,6 @@ class StringValidator(BaseValidator):
             # Pass None through
             pass
         elif self.array_ok and is_array(v):
-
             # If strict, make sure all elements are strings.
             if self.strict:
                 invalid_els = [e for e in v if not isinstance(e, str)]
@@ -1296,7 +1293,6 @@ class ColorValidator(BaseValidator):
         return self.colorscale_path is not None
 
     def description(self):
-
         named_clrs_str = "\n".join(
             textwrap.wrap(
                 ", ".join(self.named_colors),
@@ -1481,7 +1477,6 @@ class ColorlistValidator(BaseValidator):
         )
 
     def validate_coerce(self, v):
-
         if v is None:
             # Pass None through
             pass
@@ -1733,7 +1728,6 @@ class SubplotidValidator(BaseValidator):
     """
 
     def __init__(self, plotly_name, parent_name, dflt=None, regex=None, **kwargs):
-
         if dflt is None and regex is None:
             raise ValueError("One or both of regex and deflt must be specified")
 
@@ -1750,7 +1744,6 @@ class SubplotidValidator(BaseValidator):
         self.regex = self.base + r"(\d*)"
 
     def description(self):
-
         desc = """\
     The '{plotly_name}' property is an identifier of a particular
     subplot, of type '{base}', that may be specified as the string '{base}'
@@ -1817,7 +1810,6 @@ class FlaglistValidator(BaseValidator):
         self.array_ok = array_ok
 
     def description(self):
-
         desc = (
             """\
     The '{plotly_name}' property is a flaglist and may be specified
@@ -1878,7 +1870,6 @@ class FlaglistValidator(BaseValidator):
             # Pass None through
             pass
         elif self.array_ok and is_array(v):
-
             # Coerce individual strings
             validated_v = [self.vc_scalar(e) for e in v]
 
@@ -1893,7 +1884,6 @@ class FlaglistValidator(BaseValidator):
             else:
                 v = to_scalar_or_list(v)
         else:
-
             validated_v = self.vc_scalar(v)
             if validated_v is None:
                 self.raise_invalid_val(v)
@@ -1924,7 +1914,6 @@ class AnyValidator(BaseValidator):
         self.array_ok = array_ok
 
     def description(self):
-
         desc = """\
     The '{plotly_name}' property accepts values of any type
         """.format(
@@ -1987,7 +1976,6 @@ class InfoArrayValidator(BaseValidator):
             self.item_validators.append(item_validator)
 
     def description(self):
-
         # Cases
         #  1) self.items is array, self.dimensions is 1
         #       a) free_length=True
@@ -2215,7 +2203,6 @@ class InfoArrayValidator(BaseValidator):
                 and v
                 and is_array(v[0])
             ):
-
                 # 2D case
                 v = copy.deepcopy(v)
                 for row in v:
@@ -2284,7 +2271,6 @@ class DashValidator(EnumeratedValidator):
     """
 
     def __init__(self, plotly_name, parent_name, values, **kwargs):
-
         # Add regex to handle dash length lists
         dash_list_regex = r"/^\d+(\.\d+)?(px|%)?((,|\s)\s*\d+(\.\d+)?(px|%)?)*$/"
 
@@ -2296,7 +2282,6 @@ class DashValidator(EnumeratedValidator):
         )
 
     def description(self):
-
         # Separate regular values from regular expressions
         enum_vals = []
         enum_regexs = []
@@ -2354,7 +2339,6 @@ class ImageUriValidator(BaseValidator):
         )
 
     def description(self):
-
         desc = """\
     The '{plotly_name}' property is an image URI that may be specified as:
       - A remote image URI string
@@ -2448,7 +2432,6 @@ class CompoundValidator(BaseValidator):
         return self._data_class
 
     def description(self):
-
         desc = (
             """\
     The '{plotly_name}' property is an instance of {class_str}
@@ -2525,7 +2508,6 @@ class CompoundArrayValidator(BaseValidator):
         )
 
     def description(self):
-
         desc = (
             """\
     The '{plotly_name}' property is a tuple of instances of
@@ -2554,7 +2536,6 @@ class CompoundArrayValidator(BaseValidator):
         return self._data_class
 
     def validate_coerce(self, v, skip_invalid=False):
-
         if v is None:
             v = []
 
@@ -2603,7 +2584,6 @@ class BaseDataValidator(BaseValidator):
         self.set_uid = set_uid
 
     def description(self):
-
         trace_types = str(list(self.class_strs_map.keys()))
 
         trace_types_wrapped = "\n".join(
@@ -2660,7 +2640,6 @@ class BaseDataValidator(BaseValidator):
             res = []
             invalid_els = []
             for v_el in v:
-
                 if isinstance(v_el, BaseTraceType):
                     # Clone input traces
                     v_el = v_el.to_plotly_json()
@@ -2714,7 +2693,6 @@ class BaseDataValidator(BaseValidator):
 
 class BaseTemplateValidator(CompoundValidator):
     def __init__(self, plotly_name, parent_name, data_class_str, data_docs, **kwargs):
-
         super(BaseTemplateValidator, self).__init__(
             plotly_name=plotly_name,
             parent_name=parent_name,

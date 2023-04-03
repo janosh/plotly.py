@@ -43,7 +43,6 @@ class Stream:
         """
 
         if not self._isconnected():
-
             # Attempt to get the response.
             response = self._getresponse()
 

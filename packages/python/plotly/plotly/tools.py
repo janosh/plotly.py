@@ -547,7 +547,6 @@ def return_figure_from_figure_or_data(figure_or_data, validate_figure):
         )
 
     if validate_figure and not validated:
-
         try:
             figure = Figure(**figure).to_dict()
         except exceptions.PlotlyError as err:
@@ -578,6 +577,7 @@ _DEFAULT_DECREASING_COLOR = "#FF4136"
 
 DIAG_CHOICES = ["scatter", "histogram", "box"]
 VALID_COLORMAP_TYPES = ["cat", "seq"]
+
 
 # Deprecations
 class FigureFactory(object):

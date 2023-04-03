@@ -5,7 +5,6 @@ from templategen.definitions import builders
 here = os.path.dirname(os.path.abspath(__file__))
 package_dir = os.path.dirname(here)
 if __name__ == "__main__":
-
     for template_name in builders:
         template = builders[template_name]()
 

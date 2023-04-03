@@ -18,7 +18,6 @@ class ImagesTest(PlotlyApiTestCase):
         self.mock("chart_studio.api.v2.utils.validate_response")
 
     def test_create(self):
-
         body = {
             "figure": {"data": [{"y": [10, 10, 2, 20]}], "layout": {"width": 700}},
             "width": 1000,

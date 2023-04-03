@@ -6,7 +6,6 @@ import warnings
 
 class FileToolsTest(PlotlyTestCase):
     def test_set_config_file_all_entries(self):
-
         # Check set_config and get_config return the same values
 
         domain, streaming_domain, api, sharing = ("this", "thing", "that", "private")
@@ -32,7 +31,6 @@ class FileToolsTest(PlotlyTestCase):
         tools.reset_config_file()
 
     def test_set_config_file_two_entries(self):
-
         # Check set_config and get_config given only two entries return the
         # same values
 
@@ -46,14 +44,12 @@ class FileToolsTest(PlotlyTestCase):
         tools.reset_config_file()
 
     def test_set_config_file_world_readable(self):
-
         # Return TypeError when world_readable type is not a bool
 
         kwargs = {"world_readable": "True"}
         self.assertRaises(TypeError, tools.set_config_file, **kwargs)
 
     def test_set_config_expected_warning_msg(self):
-
         # Check that UserWarning is being called with http plotly_domain
 
         with warnings.catch_warnings(record=True) as w:
@@ -65,7 +61,6 @@ class FileToolsTest(PlotlyTestCase):
             assert "plotly_domain" in str(w[-1].message)
 
     def test_set_config_no_warning_msg_if_plotly_domain_is_https(self):
-
         # Check that no UserWarning is being called with https plotly_domain
 
         with warnings.catch_warnings(record=True) as w:
@@ -75,7 +70,6 @@ class FileToolsTest(PlotlyTestCase):
             assert len(w) == 0
 
     def test_reset_config_file(self):
-
         # Check reset_config and get_config return the same values
 
         tools.reset_config_file()
@@ -84,7 +78,6 @@ class FileToolsTest(PlotlyTestCase):
         self.assertEqual(config["plotly_streaming_domain"], "stream.plotly.com")
 
     def test_get_credentials_file(self):
-
         # Check get_credentials returns all the keys
 
         original_creds = tools.get_credentials_file()
@@ -98,7 +91,6 @@ class FileToolsTest(PlotlyTestCase):
         self.assertTrue(all(x in original_creds for x in expected))
 
     def test_reset_credentials_file(self):
-
         # Check get_cred return all the keys
 
         tools.reset_credentials_file()

@@ -388,7 +388,6 @@ def embed(file_owner_or_url, file_id=None, width="100%", height=525):
         ):
             feedback_contact = "Visit support.plotly.com"
         else:
-
             # different domain likely means enterprise
             feedback_contact = "Contact your On-Premise account executive"
 

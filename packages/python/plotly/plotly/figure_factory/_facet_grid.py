@@ -203,7 +203,6 @@ def _facet_grid_color_categorical(
     kwargs_trace,
     kwargs_marker,
 ):
-
     fig = make_subplots(
         rows=num_of_rows,
         cols=num_of_cols,
@@ -372,7 +371,6 @@ def _facet_grid_color_numerical(
     kwargs_trace,
     kwargs_marker,
 ):
-
     fig = make_subplots(
         rows=num_of_rows,
         cols=num_of_cols,
@@ -528,7 +526,6 @@ def _facet_grid(
     kwargs_trace,
     kwargs_marker,
 ):
-
     fig = make_subplots(
         rows=num_of_rows,
         cols=num_of_cols,
