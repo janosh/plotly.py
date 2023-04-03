@@ -46,6 +46,7 @@ NON_UNIQUE_COLUMN_MESSAGE = (
     'the column "{0}" and try again.'
 )
 
+
 # Local Config Errors
 class PlotlyLocalError(PlotlyError):
     pass

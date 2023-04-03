@@ -13,7 +13,6 @@ class TestSession(PlotlyTestCase):
         session._session["plot_options"].clear()
 
     def test_update_session_plot_options_invalid_sharing_argument(self):
-
         # Return PlotlyError when sharing arguement is not
         # 'public', 'private' or 'secret'
 
@@ -21,7 +20,6 @@ class TestSession(PlotlyTestCase):
         self.assertRaises(PlotlyError, update_session_plot_options, **kwargs)
 
     def test_update_session_plot_options_valid_sharing_argument(self):
-
         # _session['plot_options'] should contain sharing key after
         # update_session_plot_options is called by correct arguments
         # 'public, 'private' or 'secret'

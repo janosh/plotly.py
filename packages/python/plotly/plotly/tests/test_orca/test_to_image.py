@@ -38,6 +38,7 @@ image_formats = ["eps"]
 here = os.path.dirname(os.path.realpath(__file__))
 topo_df = pd.read_csv(os.path.join(here, "resources", "2011_us_ag_exports.csv"))
 
+
 # Fixtures
 # --------
 @pytest.fixture()
@@ -201,7 +202,6 @@ def test_to_image_default(fig1, format):
 
 
 def test_write_image_string(fig1, format):
-
     # Build file paths
     file_name = "fig1." + format
     file_path = tmp_dir + file_name
@@ -225,7 +225,6 @@ def test_write_image_string(fig1, format):
 
 
 def test_write_image_writeable(fig1, format):
-
     file_name = "fig1." + format
     with open(os.path.join(images_dir, file_name), "rb") as f:
         expected_bytes = f.read()

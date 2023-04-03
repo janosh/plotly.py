@@ -1592,7 +1592,6 @@ class TestMakeSubplots(TestCase):
         )
 
     def test_row_width_and_column_width(self):
-
         expected = Figure(
             {
                 "data": [],
@@ -1680,7 +1679,6 @@ class TestMakeSubplots(TestCase):
         self.assertEqual(fig.to_plotly_json(), expected.to_plotly_json())
 
     def test_row_width_and_shared_yaxes(self):
-
         expected = Figure(
             {
                 "data": [],

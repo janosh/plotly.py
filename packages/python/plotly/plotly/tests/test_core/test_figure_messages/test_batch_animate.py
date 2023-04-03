@@ -25,9 +25,7 @@ class TestBatchAnimateMessage(TestCase):
         self.figure._send_animate_msg = MagicMock()
 
     def test_batch_animate(self):
-
         with self.figure.batch_animate(easing="elastic", duration=1200):
-
             # Assign trace property
             self.figure.data[0].marker.color = "yellow"
             self.figure.data[1].marker.opacity = 0.9

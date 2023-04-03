@@ -14,7 +14,6 @@ import chart_studio.dashboard_objs.dashboard_objs as dashboard
 
 class TestDashboard(TestCase):
     def test_invalid_path(self):
-
         my_box = {
             "type": "box",
             "boxType": "plot",
@@ -32,7 +31,6 @@ class TestDashboard(TestCase):
         self.assertRaisesRegex(PlotlyError, message, dash._insert, my_box, "third")
 
     def test_box_id_none(self):
-
         my_box = {
             "type": "box",
             "boxType": "plot",

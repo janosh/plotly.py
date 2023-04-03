@@ -7,7 +7,6 @@ import plotly.colors as colors
 
 class TestColors(TestCase):
     def test_validate_colors(self):
-
         # test string input
         color_string = "foo"
 
@@ -41,7 +40,6 @@ class TestColors(TestCase):
         )
 
     def test_convert_colors_to_same_type(self):
-
         # test colortype
         color_tuple = ["#aaaaaa", "#bbbbbb", "#cccccc"]
         scale = [0, 1]
@@ -65,7 +63,6 @@ class TestColors(TestCase):
         )
 
     def test_convert_dict_colors_to_same_type(self):
-
         # test colortype
         color_dict = dict(apple="rgb(1, 1, 1)")
         colortype = 2
@@ -81,7 +78,6 @@ class TestColors(TestCase):
         )
 
     def test_validate_scale_values(self):
-
         # test that scale length is at least 2
         scale = [0]
 
@@ -118,7 +114,6 @@ class TestColors(TestCase):
         )
 
     def test_make_colorscale(self):
-
         # test minimum colors length
         color_list = [(0, 0, 0)]
 
@@ -137,7 +132,6 @@ class TestColors(TestCase):
         )
 
     def test_get_colorscale(self):
-
         # test for incorrect input type
         pattern = "Name argument have to be a string."
         name = colors.sequential.haline
@@ -176,7 +170,6 @@ class TestColors(TestCase):
         )
 
     def test_sample_colorscale(self):
-
         # test that sampling a colorscale at the defined points returns the same
         defined_colors = colors.sequential.Inferno
         sampled_colors = colors.sample_colorscale(

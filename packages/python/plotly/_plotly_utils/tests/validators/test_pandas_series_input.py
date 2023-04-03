@@ -145,7 +145,6 @@ def test_color_validator_numeric(color_validator, numeric_pandas):
 
 
 def test_color_validator_object(color_validator, color_object_pandas):
-
     res = color_validator.validate_coerce(color_object_pandas)
 
     # Check type
@@ -159,7 +158,6 @@ def test_color_validator_object(color_validator, color_object_pandas):
 
 
 def test_color_validator_categorical(color_validator, color_categorical_pandas):
-
     res = color_validator.validate_coerce(color_categorical_pandas)
 
     # Check type
@@ -176,7 +174,6 @@ def test_color_validator_categorical(color_validator, color_categorical_pandas):
 def test_data_array_validator_dates_series(
     data_array_validator, datetime_pandas, dates_array
 ):
-
     res = data_array_validator.validate_coerce(datetime_pandas)
 
     # Check type
@@ -192,7 +189,6 @@ def test_data_array_validator_dates_series(
 def test_data_array_validator_dates_dataframe(
     data_array_validator, datetime_pandas, dates_array
 ):
-
     df = pd.DataFrame({"d": datetime_pandas})
     res = data_array_validator.validate_coerce(df)
 

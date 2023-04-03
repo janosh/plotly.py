@@ -122,7 +122,6 @@ def test_color_validator_numeric(color_validator, numeric_xarray):
 
 
 def test_color_validator_object(color_validator, color_object_xarray):
-
     res = color_validator.validate_coerce(color_object_xarray)
 
     # Check type

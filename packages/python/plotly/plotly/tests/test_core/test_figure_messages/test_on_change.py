@@ -122,7 +122,6 @@ class TestOnChangeCallbacks(TestCase):
         )
 
     def test_prop_callback_nested_arrays(self):
-
         # Initialize updatemenus and buttons
         self.figure.layout.updatemenus = [{}, {}, {}]
         self.figure.layout.updatemenus[2].buttons = [{}, {}]

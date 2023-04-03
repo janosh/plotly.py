@@ -39,7 +39,6 @@ class TestAddTracesMessage(TestCase):
         )
 
     def test_add_traces(self):
-
         # Add two traces
         self.figure.add_traces(
             [

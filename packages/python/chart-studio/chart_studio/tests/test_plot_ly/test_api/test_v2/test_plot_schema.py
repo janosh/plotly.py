@@ -16,7 +16,6 @@ class PlotSchemaTest(PlotlyApiTestCase):
         self.mock("chart_studio.api.v2.utils.validate_response")
 
     def test_retrieve(self):
-
         plot_schema.retrieve("some-hash", timeout=400)
         assert self.request_mock.call_count == 1
         args, kwargs = self.request_mock.call_args

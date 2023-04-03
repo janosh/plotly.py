@@ -185,7 +185,6 @@ def create_distplot(
 
     data = []
     if show_hist:
-
         hist = _Distplot(
             hist_data,
             histnorm,
@@ -201,7 +200,6 @@ def create_distplot(
         data.append(hist)
 
     if show_curve:
-
         if curve_type == "normal":
             curve = _Distplot(
                 hist_data,
@@ -230,7 +228,6 @@ def create_distplot(
         data.append(curve)
 
     if show_rug:
-
         rug = _Distplot(
             hist_data,
             histnorm,
@@ -430,7 +427,6 @@ class _Distplot(object):
         """
         rug = [None] * self.trace_number
         for index in range(self.trace_number):
-
             rug[index] = dict(
                 type="scatter",
                 x=self.hist_data[index],

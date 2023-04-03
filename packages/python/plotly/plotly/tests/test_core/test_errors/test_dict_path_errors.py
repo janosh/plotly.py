@@ -37,7 +37,6 @@ layout.shapes[2].x0
 
 
 def test_raises_on_bad_dot_property(some_fig):
-
     # Check . property lookup errors can be detected when path used as key to
     # go.Figure
     raised = False
@@ -57,7 +56,6 @@ layout.shapes[1].x2000
 
 
 def test_raises_on_bad_ancestor_dot_property(some_fig):
-
     # Check . property lookup errors but not on the last part of the path
     raised = False
     try:
@@ -76,7 +74,6 @@ layout.shapa[1].x2000
 
 
 def test_raises_on_bad_indexed_underscore_property(some_fig):
-
     # The way these tests work is first the error is raised without using
     # underscores to get the Exception we expect, then the string showing the
     # bad property path is removed (because it will not match the string

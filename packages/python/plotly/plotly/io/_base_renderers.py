@@ -114,7 +114,6 @@ class ImageRenderer(MimetypeRenderer):
         scale=None,
         engine="auto",
     ):
-
         self.mime_type = mime_type
         self.b64_encode = b64_encode
         self.format = format
@@ -257,7 +256,6 @@ class HtmlRenderer(MimetypeRenderer):
         post_script=None,
         animation_opts=None,
     ):
-
         self.config = dict(config) if config else {}
         self.auto_play = auto_play
         self.connected = connected
@@ -329,7 +327,6 @@ class HtmlRenderer(MimetypeRenderer):
             ipython_display.display_html(script, raw=True)
 
     def to_mimebundle(self, fig_dict):
-
         from plotly.io import to_html
 
         if self.requirejs:
@@ -441,7 +438,6 @@ class KaggleRenderer(HtmlRenderer):
     def __init__(
         self, config=None, auto_play=False, post_script=None, animation_opts=None
     ):
-
         super(KaggleRenderer, self).__init__(
             connected=True,
             full_html=False,
@@ -469,7 +465,6 @@ class AzureRenderer(HtmlRenderer):
     def __init__(
         self, config=None, auto_play=False, post_script=None, animation_opts=None
     ):
-
         super(AzureRenderer, self).__init__(
             connected=True,
             full_html=False,
@@ -494,7 +489,6 @@ class ColabRenderer(HtmlRenderer):
     def __init__(
         self, config=None, auto_play=False, post_script=None, animation_opts=None
     ):
-
         super(ColabRenderer, self).__init__(
             connected=True,
             full_html=True,
@@ -540,7 +534,6 @@ class IFrameRenderer(MimetypeRenderer):
         include_plotlyjs=True,
         html_directory="iframe_figures",
     ):
-
         self.config = config
         self.auto_play = auto_play
         self.post_script = post_script
@@ -622,7 +615,6 @@ class IFrameRenderer(MimetypeRenderer):
 
 
 class CoCalcRenderer(IFrameRenderer):
-
     _render_count = 0
 
     def build_filename(self):
@@ -733,7 +725,6 @@ class BrowserRenderer(ExternalRenderer):
         post_script=None,
         animation_opts=None,
     ):
-
         self.config = config
         self.auto_play = auto_play
         self.using = using
@@ -770,7 +761,6 @@ class DatabricksRenderer(ExternalRenderer):
         animation_opts=None,
         include_plotlyjs="cdn",
     ):
-
         self.config = config
         self.auto_play = auto_play
         self.post_script = post_script
@@ -842,7 +832,6 @@ class SphinxGalleryHtmlRenderer(HtmlRenderer):
         )
 
     def to_mimebundle(self, fig_dict):
-
         from plotly.io import to_html
 
         if self.requirejs:

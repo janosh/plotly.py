@@ -249,7 +249,6 @@ class PlotlyOfflineTestCase(PlotlyOfflineBaseTestCase):
             "subpath/to/plotly.min.js",
             "something.js",
         ]:
-
             html = self._read_html(
                 plotly.offline.plot(
                     fig,
@@ -273,7 +272,6 @@ class PlotlyOfflineTestCase(PlotlyOfflineBaseTestCase):
             "subpath/to/plotly.min.js",
             "something.js",
         ]:
-
             html = plotly.offline.plot(
                 fig, include_plotlyjs=include_plotlyjs, output_type="div"
             )

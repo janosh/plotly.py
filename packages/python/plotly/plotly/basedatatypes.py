@@ -87,6 +87,7 @@ def _str_to_dict_path_full(key_path_str):
             return key.replace("-", "_")
 
         key_path2b = list(map(_make_hyphen_key, key_path2))
+
         # Here we want to split up each non-empty string in the list at
         # underscores and recombine the strings using chomp_empty_strings so
         # that leading, trailing and multiple _ will be preserved
@@ -491,7 +492,6 @@ class BaseFigure(object):
         elif isinstance(data, dict) and (
             "data" in data or "layout" in data or "frames" in data
         ):
-
             # Bring over subplot fields
             self._grid_str = data.get("_grid_str", None)
             self._grid_ref = data.get("_grid_ref", None)
@@ -659,7 +659,6 @@ class BaseFigure(object):
         return (self.__class__, (props,))
 
     def __setitem__(self, prop, value):
-
         # Normalize prop
         # --------------
         # Convert into a property tuple
@@ -722,7 +721,6 @@ class BaseFigure(object):
             raise AttributeError(prop)
 
     def __getitem__(self, prop):
-
         # Normalize prop
         # --------------
         # Convert into a property tuple
@@ -954,7 +952,6 @@ class BaseFigure(object):
 
     @data.setter
     def data(self, new_data):
-
         # Validate new_data
         # -----------------
         err_header = (
@@ -1048,7 +1045,6 @@ class BaseFigure(object):
 
         # ### Check whether a move is needed ###
         if not all([i1 == i2 for i1, i2 in zip(new_inds, current_inds)]):
-
             # #### Save off index lists for moveTraces message ####
             msg_current_inds = current_inds
             msg_new_inds = new_inds
@@ -1578,6 +1574,7 @@ because subplot does not have a secondary y-axis"""
                 )
             ):
                 return self
+
             # in case the user specified they wanted an axis to refer to the
             # domain of that axis and not the data, append ' domain' to the
             # computed axis accordingly
@@ -1691,7 +1688,6 @@ because subplot does not have a secondary y-axis"""
         # Process each key
         # ----------------
         for key_path_str, v in restyle_data.items():
-
             # Track whether any of the new values are cause a change in
             # self._data
             any_vals_changed = False
@@ -1707,13 +1703,11 @@ because subplot does not have a secondary y-axis"""
                 trace_v = v[i % len(v)] if isinstance(v, list) else v
 
                 if trace_v is not Undefined:
-
                     # Get trace being updated
                     trace_obj = self.data[trace_ind]
 
                     # Validate key_path_str
                     if not BaseFigure._is_key_path_compatible(key_path_str, trace_obj):
-
                         trace_class = trace_obj.__class__.__name__
                         raise ValueError(
                             """
@@ -1871,7 +1865,6 @@ Invalid property path '{key_path_str}' for trace class {trace_class}
         # Initialize parent dict or list of value to be assigned
         # -----------------------------------------------------
         for kp, key_path_el in enumerate(key_path[:-1]):
-
             # Extend val_parent list if needed
             if isinstance(val_parent, list) and isinstance(key_path_el, int):
                 while len(val_parent) <= key_path_el:
@@ -2528,7 +2521,6 @@ Please use the add_trace method with the row and col parameters.
 
     @layout.setter
     def layout(self, new_layout):
-
         # Validate new layout
         # -------------------
         new_layout = self._layout_validator.validate_coerce(new_layout)
@@ -2623,9 +2615,7 @@ Please use the add_trace method with the row and col parameters.
         # Process each key
         # ----------------
         for key_path_str, v in relayout_data.items():
-
             if not BaseFigure._is_key_path_compatible(key_path_str, self.layout):
-
                 raise ValueError(
                     """
 Invalid property path '{key_path_str}' for layout
@@ -2748,7 +2738,6 @@ Invalid property path '{key_path_str}' for layout
         dispatch_plan = {}
 
         for key_path_str in key_path_strs:
-
             key_path = BaseFigure._str_to_dict_path(key_path_str)
             key_path_so_far = ()
             keys_left = key_path
@@ -2925,7 +2914,6 @@ Invalid property path '{key_path_str}' for layout
     def _perform_plotly_update(
         self, restyle_data=None, relayout_data=None, trace_indexes=None
     ):
-
         # Check for early exist
         # ---------------------
         if not restyle_data and not relayout_data:
@@ -3329,7 +3317,6 @@ Invalid property path '{key_path_str}' for layout
         return result
 
     def to_ordered_dict(self, skip_uid=True):
-
         # Initialize resulting OrderedDict
         # --------------------------------
         result = collections.OrderedDict()
@@ -3856,7 +3843,6 @@ Invalid property path '{key_path_str}' for layout
             # Nothing to do
             return
         elif isinstance(plotly_obj, BasePlotlyType):
-
             # Handle initializing subplot ids
             # -------------------------------
             # This should be valid even if xaxis2 hasn't been initialized:
@@ -3894,7 +3880,6 @@ Invalid property path '{key_path_str}' for layout
                 validator = plotly_obj._get_prop_validator(key)
 
                 if isinstance(validator, CompoundValidator) and isinstance(val, dict):
-
                     # Update compound objects recursively
                     # plotly_obj[key].update(val)
                     BaseFigure._perform_update(plotly_obj[key], val)
@@ -3921,7 +3906,6 @@ Invalid property path '{key_path_str}' for layout
                     plotly_obj[key] = val
 
         elif isinstance(plotly_obj, tuple):
-
             if len(update_obj) == 0:
                 # Nothing to do
                 return
@@ -4827,7 +4811,6 @@ class BasePlotlyType(object):
         # ------------------
         # e.g. ('foo',)
         if len(prop) == 1:
-
             # ### Unwrap scalar tuple ###
             prop = prop[0]
 
@@ -5473,7 +5456,6 @@ class BasePlotlyType(object):
             # ### Compute callback paths that changed ###
             common_paths = changed_paths.intersection(set(prop_path_tuples))
             if common_paths:
-
                 # #### Invoke callback ####
                 callback_args = [self[cb_path] for cb_path in prop_path_tuples]
 

@@ -22,7 +22,6 @@ class PlotlyApiTestCase(PlotlyTestCase):
         return new_mock
 
     def setUp(self):
-
         super(PlotlyApiTestCase, self).setUp()
 
         self.username = "foo"

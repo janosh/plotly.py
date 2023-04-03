@@ -243,7 +243,6 @@ class TestSelectForEachUpdateAnnotations(TestCase):
         self.assert_update("shapes", [4], patch=dict(opacity=0), secondary_y=True)
 
     def test_shape_attributes(self):
-
         self.fig.add_shape(fillcolor="blue", opacity=0.3)
         self.fig.update_shapes(fillcolor="red")
 

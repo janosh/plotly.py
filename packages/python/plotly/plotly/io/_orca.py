@@ -126,6 +126,7 @@ def which_py2(cmd, mode=os.F_OK | os.X_OK, path=None):
     of os.environ.get("PATH"), or can be overridden with a custom search
     path.
     """
+
     # Check that a given file can be accessed with the correct mode.
     # Additionally check that `file` is not a directory, as on Windows
     # directories pass the os.access check.
@@ -218,7 +219,6 @@ class OrcaConfig(object):
     """
 
     def __init__(self):
-
         # Initialize properties dict
         self._props = {}
 
@@ -317,7 +317,6 @@ but received value of type {typ}l
         None
         """
         if os.path.exists(self.config_file):
-
             # ### Load file into a string ###
             try:
                 with open(self.config_file, "r") as f:
@@ -397,7 +396,6 @@ Failed to write orca configuration file at '{path}'""".format(
 
     @server_url.setter
     def server_url(self, val):
-
         if val is None:
             self._props.pop("server_url", None)
             return
@@ -439,7 +437,6 @@ The server_url property must be a string, but received value of type {typ}.
 
     @port.setter
     def port(self, val):
-
         if val is None:
             self._props.pop("port", None)
             return
@@ -486,7 +483,6 @@ The port property must be an integer, but received value of type {typ}.
 
     @executable.setter
     def executable(self, val):
-
         if val is None:
             self._props.pop("executable", None)
         else:
@@ -530,7 +526,6 @@ The executable property must be a string, but received value of type {typ}.
 
     @timeout.setter
     def timeout(self, val):
-
         if val is None:
             self._props.pop("timeout", None)
         else:
@@ -562,7 +557,6 @@ The timeout property must be a number, but received value of type {typ}.
 
     @default_width.setter
     def default_width(self, val):
-
         if val is None:
             self._props.pop("default_width", None)
             return
@@ -591,7 +585,6 @@ The default_width property must be an int, but received value of type {typ}.
 
     @default_height.setter
     def default_height(self, val):
-
         if val is None:
             self._props.pop("default_height", None)
             return
@@ -651,7 +644,6 @@ The default_height property must be an int, but received value of type {typ}.
 
     @default_scale.setter
     def default_scale(self, val):
-
         if val is None:
             self._props.pop("default_scale", None)
             return
@@ -680,7 +672,6 @@ The default_scale property must be a number, but received value of type {typ}.
 
     @topojson.setter
     def topojson(self, val):
-
         if val is None:
             self._props.pop("topojson", None)
         else:
@@ -713,7 +704,6 @@ The topojson property must be a string, but received value of type {typ}.
 
     @mathjax.setter
     def mathjax(self, val):
-
         if val is None:
             self._props.pop("mathjax", None)
         else:
@@ -743,7 +733,6 @@ The mathjax property must be a string, but received value of type {typ}.
 
     @mapbox_access_token.setter
     def mapbox_access_token(self, val):
-
         if val is None:
             self._props.pop("mapbox_access_token", None)
         else:
@@ -1165,7 +1154,6 @@ Here is the error that was returned by the command
 
         # Check for Linux without X installed.
         if sys.platform.startswith("linux") and not os.environ.get("DISPLAY"):
-
             err_msg += """\
 Note: When used on Linux, orca requires an X11 display server, but none was
 detected. Please install Xvfb and configure plotly.py to run orca using Xvfb
@@ -1304,7 +1292,6 @@ def shutdown_server():
     if orca_state["proc"] is not None:
         with orca_lock:
             if orca_state["proc"] is not None:
-
                 # We use psutil to kill all child processes of the main orca
                 # process. This prevents any zombie processes from being
                 # left over, and it saves us from needing to write
@@ -1397,7 +1384,6 @@ Install using conda:
 
             # Start a new server process if none is active
             if orca_state["proc"] is None:
-
                 # Determine server port
                 if config.port is None:
                     orca_state["port"] = find_open_port()

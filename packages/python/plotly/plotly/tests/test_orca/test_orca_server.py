@@ -125,7 +125,6 @@ def test_ensure_orca_ping_and_proc():
 
 
 def test_server_timeout_shutdown():
-
     # Configure server to shutdown after 10 seconds without
     # calls to ensure_orca_server
     pio.orca.config.timeout = 10

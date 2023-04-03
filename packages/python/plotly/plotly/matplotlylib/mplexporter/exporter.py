@@ -96,7 +96,7 @@ class Exporter(object):
 
         code = "display"
         if ax is not None:
-            for (c, trans) in [
+            for c, trans in [
                 ("data", ax.transData),
                 ("axes", ax.transAxes),
                 ("figure", ax.figure.transFigure),
@@ -130,7 +130,7 @@ class Exporter(object):
                 self.draw_line(ax, line)
             for text in ax.texts:
                 self.draw_text(ax, text)
-            for (text, ttp) in zip(
+            for text, ttp in zip(
                 [ax.xaxis.label, ax.yaxis.label, ax.title],
                 ["xlabel", "ylabel", "title"],
             ):

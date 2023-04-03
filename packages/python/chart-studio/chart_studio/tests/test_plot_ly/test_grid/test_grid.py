@@ -29,7 +29,6 @@ def random_filename():
 
 
 class GridTest(PlotlyTestCase):
-
     # Test grid args
     _grid_id = "chris:3043"
     _grid = Grid([])

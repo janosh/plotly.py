@@ -46,7 +46,6 @@ OLD_CLASS_NAMES = [
 
 class TestBackwardsCompat(TestCase):
     def test_old_class_names(self):
-
         # these were all defined at one point, we want to maintain backwards
         # compat, so we basically just create a checkpoint with this test.
 
@@ -119,7 +118,6 @@ class TestBackwardsCompat(TestCase):
         )
 
     def test_legacy_title_props_remapped(self):
-
         # plain Layout
         obj = go.Layout()
         self.assertIs(obj.titlefont, obj.title.font)

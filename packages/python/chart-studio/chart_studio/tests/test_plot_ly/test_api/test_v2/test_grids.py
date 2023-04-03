@@ -86,7 +86,6 @@ class GridsTest(PlotlyApiTestCase):
         )
 
     def test_lookup(self):
-
         # requests does urlencode, so don't worry about the `' '` character!
 
         path = "/mah grid"
